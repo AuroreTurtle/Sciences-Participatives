@@ -1,0 +1,33 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li id = "active"><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+	
+<h1> Page de création d'un compte </h1> <br>
+
+<p>Bonjour et bienvenue sur notre site de sciences participatives. </p> </br>
+<p> La création d'un compte utilisateur vous permettra de participer à notre thème: <br>
+<ul>
+<li>Faire des observations autant que vous voulez. </li><br>
+<li>Suivre votre observation. </li><br>
+<li>Participer aux jeux avec un tirage au sort pour gagner des cadeaux surprises. </li>
+</ul>
+<br>
+Pour créér un compte, ça vous prendra environs 3 minutes <a href="{% url 'page_creer_compte_utilisateur' %}"> <b>en cliquant ici</b></a>.<br>
+Si vous êtes chercheur membre du laboratoire <a href="{% url 'page_creer_compte_admin' %}"> <b>cliquer ici</b></a>.
+</p>
+
+{%endblock%}
+ 
+
+

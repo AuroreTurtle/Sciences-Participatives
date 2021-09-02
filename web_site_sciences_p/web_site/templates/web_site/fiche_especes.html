@@ -1,0 +1,36 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li id = "active"><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+<h1> Fiche: {{especes.Nom_vernaculaire}} </h1> <br>
+<p> 
+	<u>Nom scientifique :</u> <i>{{especes.Nom_scientifiques}}</i></br></br>
+<figure class="alignement"><!--photo de l'espece centrée-->
+	<img src="{{ MEDIA_URL }}{{especes.Photo}}" alt="{{especes.Nom_scientifiques}}" title="{{especes.Nom_scientifiques}}" width=750 height=500/>
+	<figcaption><i>{{especes.Nom_scientifiques}}</i></figcaption> <!--titre de la photo-->
+</figure>
+<br>
+<u>Description : <br> </u> {{especes.Description}}</br></br>
+<u>Habitat :</u> {{especes.Habitat}}</br></br>
+<u>Statut de conservation:</u> {{especes.Statut_IUCN}} </br></br>
+<u>Classification:</u> <ul> 
+							<li> Familles:{{especes.Familles}}</li>
+							<ul> <li>Ordres:{{especes.Ordre}}</li>
+							<ul><li> Espèce:<i>{{especes.Nom_scientifiques}}</i> </li></ul>						
+						</ul> </ul> </br>
+Pour éditer cette fiche <a href="{% url 'page_editer_especes' pk_id=especes.id%} "> cliquer ici</a>. <br><br>
+Pour aller plus loin vous pouvez consulter <a href="https://inpn.mnhn.fr/espece/cd_nom/{{especes.TaxRef}}" target="_blank"> l'INPN de l'espèce</a>. <!--Lien vers le site INPN-->
+</p>
+
+{%endblock%}

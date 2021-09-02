@@ -1,0 +1,29 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li id = "active"><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+<h1> Observation du {{obs.Date|date:"j E Y"}} par {{obs.Observateur}} </h1> <br>
+<p> 
+<u><b>Espèce observée :</b></u> {{obs.sp_observe}} <br><br>
+<img src="{{ MEDIA_URL }}{{obs.Photos}}" alt="Photo d'observation" width=450 height=300/> <br><br>
+<u>Nombre d'individus observés :</u> {{obs.Estimation}} <br><br>
+<u>Lieu d'observation :</u> 
+<ul>
+<li> Ville : {{obs.Ville}} </li>
+<li> Département : {{obs.Departement}} </li>
+<li> Pays : {{obs.Pays}} </li>
+</ul>
+</p>
+
+{%endblock%}

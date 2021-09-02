@@ -1,0 +1,45 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li id = "active"><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+<h2>Connexion</h2> <br>
+
+<p>Bonjour. </p>
+<p> Vous êtes membre de notre laboratoire? <br> 
+Veuillez rentrer votre "<b>Nom</b>" et "<b>Numéro de matricule</b>" pour vous connecter.</p>
+<form action="{% url 'page_connexion_admin' %}" method="post">
+    {% csrf_token %}
+    
+    {% for hidden in form.hidden_fields%}
+		{{hidden}}
+	{% endfor %}
+	
+	{{entreeAdm.Nom.label_tag}}<br>
+	{{entreeAdm.Nom}} </br>
+					   </br>
+	
+	{{entreeAdm.N_matricule.label_tag}}<br>
+	{{entreeAdm.N_matricule}} </br>
+					  </br>
+    <input type="submit" value="Se connecter" />
+</form>
+<br>
+
+<p>Si vous n'avez pas encore un compte et que vous souhaiter en créer un ? <a href="{% url 'page_creer_compte_admin' %}"> cliquer sur ce lien </a></p>
+
+{%endblock%}
+ 
+
+
+

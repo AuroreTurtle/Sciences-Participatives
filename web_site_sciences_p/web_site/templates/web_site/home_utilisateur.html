@@ -1,0 +1,30 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{%block login%}
+
+<p class = 'login'> Vous êtes connecté en tant que <b>{{utilisateur.Login}}</b> <img src="{{ MEDIA_URL }}{{utilisateur.Photo}}" alt="Photo utilisateur" width=50 height=50/> </p>
+     {%endblock%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li id = "active"><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_creer_observation' %}">Faire une observation</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+
+<p><b>Vos observations</b></p> 
+<ul>{% for observation in liste_observations %}
+<li> {{observation.sp_observe}} le {{observation.Date|date:"j E Y"}} </li>
+{% endfor %}
+</ul>
+
+
+{%endblock%}
+
+
+

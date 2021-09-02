@@ -1,0 +1,42 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav>
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li id = "active"><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li> <!-- Affichage Date et Heure -->
+		</ul>
+    </nav>
+	
+<h1> Bienvenue sur le site de Sciences Participatives </h1><br>
+
+<p> En fonction de votre situation (avec un compte ou non),  vous aurez accès à certaines pages spécifiques </p>
+
+<h3> Sans compte </h3>
+<p>Sur le site vous avez accès sans vous connecter à :
+<ol>
+<li> la liste des espèces observables </li>
+La liste est triée par catégorie : Plante, Champignon, Insectes, Reptiles/Amphibiens, Mammifères et Oiseaux. <br>
+Vous pourrez ainsi facilement retrouver l'espèce que vous recherchez pour savoir si elle fait partie de nos recherches. 
+Si vous avez trouvé l'espèce que vous recherchiez, vous pouvez cliquer dessus pour avoir plus d'informations.
+<br><br>
+<li> la liste des observations déjà faites par des utilisateurs </li>
+Vous aurez accès aux observations ainsi que toutes les informations de l'observation.
+</ol>
+</p>
+<p> Si vous voulez rentrer une observation, il faut créer un compte <a href="{% url 'page_entree_creer_compte' %}"> ici </a>.
+</p>
+<br>
+<h3> Avec un compte et connecté </h3>
+<p> En vous connectant, vous allez pouvoir créer une observation c'est-à-dire rentrer toutes les informations de l'espèce observée. 
+Vous allez pouvoir ainsi voir toutes les observations que vous avez rentrées dans votre page d'accueil.
+</p>
+
+{%endblock%}
+ 
+

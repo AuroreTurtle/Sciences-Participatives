@@ -1,0 +1,53 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li id = "active"><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+	
+<h2>Création compte UTILISATEUR</h2> <br>
+<p> Pour la création d'un compte Utilisateur, il faut :
+<ol>
+<li> Votre Nom, Prénom et une Photo de profil </li>
+<li> Votre email </li>
+<li> Votre Login et votre Mot de passe </li>
+</ol>
+</p>
+
+<form action="{% url 'page_creer_compte_utilisateur' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for hidden in form.hidden_fields%}
+		{{hidden}}
+	{% endfor %}
+	
+	{{form.Photo.label_tag}}<br>
+	{{form.Photo}} </br>
+						</br>
+	{{form.Nom.label_tag}}<br>
+	{{form.Nom}} </br>
+					   </br>
+	{{form.Prenom.label_tag}}<br>
+	{{form.Prenom}} </br>
+					   </br>
+	{{form.Email.label_tag}}<br>
+	{{form.Email}} </br>
+					   </br>
+	{{form.Login.label_tag}}<br>
+	{{form.Login}} </br>
+					   </br>
+	{{form.Pwd.label_tag}}<br>
+	{{form.Pwd}} </br>
+					   </br>
+    <input type="submit" value="Valider" />
+</form>
+
+{%endblock%}

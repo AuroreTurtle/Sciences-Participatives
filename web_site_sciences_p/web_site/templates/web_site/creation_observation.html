@@ -1,0 +1,61 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li id = "active"><a href="{% url 'page_creer_observation' %}">Faire une observation</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+<h1> Création d'une nouvelle observation </h1> <br>
+<p> <b>/!\</b> Avant de remplir le formulaire, assurez-vous que l'espèce observée est bien une espèce présente dans la liste de ce site.</p>
+<p> Pour la création d'une observation, il faut :
+<ol>
+<li> La localisation en renseignant la ville, le département, le pays. </li>
+<li> La date de l'observation. </li>
+<li> Une photo de l'observation pour vérifier que l'espèce a été bien identifiée. </li>
+<li> Le nombre d'individu de l'espèce observée ou bien une estimation du nombre d'individu s'il y en a trop. </li>
+<li> Sélectionner l'espèce vue. </li>
+</ol>
+</p>
+
+<form action="{% url 'page_creer_observation' %}" method="post"  enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for hidden in form.hidden_fields%}
+		{{hidden}}
+	{% endfor %}
+	{{form.Ville.label_tag}}<br>
+	{{form.Ville}} </br>
+					   </br>
+	{{form.Departement.label_tag}}<br>
+	{{form.Departement}} </br>
+					   </br>
+	{{form.Pays.label_tag}}<br>
+	{{form.Pays}} </br>
+					   </br>
+	{{form.Date.label_tag}}<br>
+	{{form.Date}} </br>
+					   </br>
+	{{form.Photos.label_tag}}<br>
+	{{form.Photos}} </br>
+					   </br>
+	{{form.Estimation.label_tag}}<br>
+	{{form.Estimation}} </br>
+					   </br>
+	{{form.Observateur.label_tag}}<br>
+	{{form.Observateur}} </br>
+					   </br>
+	{{form.sp_observe.label_tag}}<br>
+	{{form.sp_observe}} </br>
+	</br> </br> </br>
+    <input type="submit" value="Valider" />
+</form>
+
+{%endblock%}
+

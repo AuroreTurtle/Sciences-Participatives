@@ -1,0 +1,11 @@
+{% extends 'page_base.html' %} 
+
+{% block contenu_page%}
+
+<p> Désolé, votre login et/ou votre mot de passe sont incorrectes.</p>
+<p>Veuillez vérifier et réessayer. <br><br>
+<a href="{% url 'page_connexion_utilisateur' %}" class="btn"> Voulez-vous continuer ? </a> 
+ou <a href="{% url 'page_home' %}" class="btn"> Retournez à la page d'accueil? </a> </p>
+
+
+{%endblock%}

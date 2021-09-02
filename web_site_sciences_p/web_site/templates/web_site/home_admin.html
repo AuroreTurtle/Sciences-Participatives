@@ -1,0 +1,28 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{%block login%}
+     
+<p class = 'login'> <b>{{admin.Nom}} </b> , vous êtes connecté en tant qu'administrateur </p> 
+     {%endblock%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li id = "active"><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_creer_especes' %}">Création d'une fiche Espèces</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+    </nav>
+
+<p><b>Voici une liste des "FICHES ESPÈCES QUE VOUS AVEZ CRÉÉ"</b></p> 
+<ul>{% for fiche in liste_fiche %}
+<li> <i>{{fiche.Nom_scientifiques}}</i></li>
+{% endfor %}
+</ul>
+
+{%endblock%}
+
+
+

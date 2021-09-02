@@ -1,0 +1,27 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li><a href="{% url 'page_entree_creer_compte' %}">Création d'un compte</a></li>
+		  <li id = "active"><a href="{% url 'page_connexionTypes' %}">Se connecter</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+		</ul>
+	</nav>
+
+<h1>Page d'authentification</h1> <br>
+
+<p>Pour vous connecter, veuillir choisir votre catégorie :
+<a href="{% url 'page_connexion_utilisateur' %}" class="btn"> Utilisateur normal </a> 
+ou <a href="{% url 'page_connexion_admin' %}"class="btn"> Membre du laboratoire </a> </p>
+
+{%endblock%}
+ 
+
+
+
+

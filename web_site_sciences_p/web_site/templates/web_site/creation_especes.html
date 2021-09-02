@@ -1,0 +1,78 @@
+{% extends 'page_base.html' %} 
+{%load static%}
+{% block contenu_page%}
+    <nav> 
+		<ul class = "nav-haut"> <!-- Menu de navigation -->
+		  <li><a href="{% url 'page_home' %}"> <img  src="{%static 'image/icon-accueil.jpeg'%}" alt="icon" width="20" height="20" ></a></li>
+		  <li><a href="{% url 'page_liste_especes' %}">Liste des Espèces</a></li>
+		  <li><a href="{% url 'page_liste_observations' %}">Liste des observations</a></li>
+		  <li id = "active"><a href="{% url 'page_creer_especes' %}">Création d'une fiche Espèces</a></li>
+		  <li><a href="{% url 'page_contact' %}">Contact</a></li>
+		  <li><p class = "heure" > {% now "l j E Y" %} {% now "H:i:s" %}</p></li>
+	 </ul>
+    </nav>
+
+<h1> Création d'une nouvelle fiche Espèce </h1> <br>
+<p> Pour la création d'une fiche Espèce, il faut :
+<ol>
+<li> Le nom vernaculaire et le nom scientifique. </li>
+<li> Les informations sur la classification : Famille et Ordre. </li>
+<li> Une photo de l'espèce. </li>
+<li> Une description pour avoir des informations sur l'espèce ainsi que des détails d'identification. </li>
+<li> Des informations sur la répartition géographique pour savoir où on peut trouver l'espèce. </li>
+<li> Des informations sur l'habitat de l'espèce pour connaitre le type d'habitat où l'on peut voir l'espèce. </li>
+<li> Le numéro TaxRef pour avoir le lien vers l'INPN de l'espèce si l'utilisateur veut plus d'informations. </li>
+<li> Le statut UICN à choisir parmi les catégories suivantes: Eteinte (EX), Eteinte à l’état sauvage (EW), En danger critique (CR), En danger (EN), Vulnérable (VU), Quasi menacée (NT), Préoccupation mineure (LC), Données insuffisantes (DD), Non évaluée (NE).</li>
+<li> La catégorie de l'espèce pour retrouver plus facilement l'espèce dans la liste.</li>
+</ol>
+</p>
+
+<form action="{% url 'page_creer_especes' %}" method="POST" enctype="multipart/form-data"> <!-- charger photos dans le formulaire-->
+    {% csrf_token %}
+    
+    {% for hidden in form.hidden_fields%}
+		{{hidden}}
+	{% endfor %}
+	
+	{{form.Nom_vernaculaire.label_tag}}<br>
+	{{form.Nom_vernaculaire}} </br>
+					   </br>
+	{{form.Familles.label_tag}}<br>
+	{{form.Familles}} </br>
+					   </br>
+	{{form.Ordre.label_tag}}<br>
+	{{form.Ordre}} </br>
+					   </br>
+	{{form.Nom_scientifiques.label_tag}}<br>
+	{{form.Nom_scientifiques}} </br>
+					   </br>
+	{{form.Photo.label_tag}}<br>
+	{{form.Photo}} </br>
+					   </br>
+	{{form.Description.label_tag}}<br>
+	{{form.Description}} </br>
+					   </br>
+	{{form.Repartition_geographique.label_tag}}<br>
+	{{form.Repartition_geographique}} </br>
+					   </br>
+	{{form.TaxRef.label_tag}}<br>
+	{{form.TaxRef}} </br>
+					   </br>
+	{{form.Habitat.label_tag}}<br>
+	{{form.Habitat}} </br>
+					   </br>
+	{{form.Statut_IUCN.label_tag}}<br>
+	{{form.Statut_IUCN}} </br>
+					   </br>
+	{{form.Categorie_especes.label_tag}}<br>
+	{{form.Categorie_especes}} </br>
+	</br> 
+	{{form.Auteur_fe.label_tag}}<br>
+	{{form.Auteur_fe}} </br>
+	</br> 
+    <input type="submit" value="Valider" />
+</form>
+
+{%endblock%}
+
+

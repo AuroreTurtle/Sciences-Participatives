@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+	
+	<head>
+		<title> SCIENCES PARTICIPATIVES </title>
+		<link rel="stylesheet" href="{%static 'css/style.css'%}?{%now 'U'%}"/>
+		<meta charset = "utf-8"/>
+	</head>
+
+<!-- --------------DEBUT DE LIGNE DE CODE DE MON BODY WEB----------- -->
+<body >
+
+<!-- --------------DEBUT DE MON EN TETE----------- -->
+	 <div>
+		<header>
+		<img class="Bande" src="{%static 'image/Adonis1.jpg'%}" alt="Adonis" width="100" height="100"/>
+		<img class="Bande" src="{%static 'image/Aigle1.jpg'%}" alt="Aigles" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Aster1.jpg'%}" alt="Aster" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Bouquetin.jpg'%}" alt="Bouquetin" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/panda1.jpg'%}" alt="Panda" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Ramondie.jpg'%}" alt="Ramondie" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Aigle1.jpg'%}" alt="Aigles" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Aster1.jpg'%}" alt="Aster" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Bouquetin.jpg'%}" alt="Bouquetin" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/panda1.jpg'%}" alt="Panda" width="100" height="100" />
+		<img class="Bande" src="{%static 'image/Ramondie.jpg'%}" alt="Ramondie" width="100" height="100" />
+		</header>
+	</div> 
+
+{%block login%}
+{%endblock%}
+
+{% block contenu_page%}
+{%endblock%}
+
+<br>
+
+ <!-- --------------BAS DE PAGE------------->
+    <footer> 
+	<div id="conteneur">
+		<div><p> ce site est réalisé par:
+		<br/>
+        RANDRIAMANANANA Lanto et GOURRAUD Aurore <br/>
+		<i>lantotiana.randriamanana@edu.mnhn.fr </i> | <i>aurore.gourraud@edu.mnhn.fr</i>
+		<br> © décembre 2019 </p>
+		</div>
+		<div><img class= 'logo' src = "{%static 'image/logo-MNHN.png'%}" alt='Logo MNHN'/></div>
+	</div>
+    </footer>
+ </body>
+</html>

@@ -1,0 +1,138 @@
+/*---------------------header ----------------------------------------*/
+header {
+	text-align: center; 
+    right: 0;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+	color: white; 
+	background:honeydew ; 
+	font-size:30px;
+	padding: 10px 30px;
+	position: fixed;
+}
+.heure { 
+	
+	color: black;
+	text-align: right;
+	padding: 5px 14px;
+	margin: 0;
+	font-size: 17px;
+}
+img.Bande {
+	margin-left: auto;
+	margin-right:auto;
+	border-radius: 8px;
+	vertical-align: middle;
+} 
+
+/*---------------------header ----------------------------------------*/
+.login {
+	color: blue; 
+	text-align: right;
+}
+
+.nav-haut {
+  overflow: hidden;
+  top:115px;
+  left:0px;
+  position: fixed;
+  list-style-type: none;
+  padding: 0px;
+  width: 100%;
+  background-color: yellowgreen;
+  margin-left:0;
+  margin: 0;
+
+}
+
+.nav-haut a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 5px 14px;
+  margin: 0;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-haut a:hover {
+  background-color: white;
+  color: black;
+}
+
+.nav-haut #active a {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/*------couleur, police et position message qui dirigent vers les liens ----------------------------------------*/
+h1 {
+	color: red;
+	font-size: 40px;
+	position: absolute, center;
+	right: 0;
+	text-align: center;
+}
+ 
+html{height:100%;}
+
+body{ 
+	height:100%;
+	max-width:1280px;
+	min-height:100%;
+	margin:0 auto;
+	position: relative;
+	margin-top: 12%;
+	margin-left:8%;
+	margin-right:2%;
+	text-align: justify;
+}
+
+.logo{
+   	width: 85px;
+   	}
+
+/*----- Bouton ----*/
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background: ghostwhite;
+    border: 1px solid green;
+	border-radius:10px;
+    color: black;
+	text-decoration: none;
+	-webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+    -webkit-box-shadow: 0px 2px 0px black;
+    -moz-box-shadow: 0px 2px 0px black;
+    box-shadow: 0px 1px 2px black;
+}
+ 
+.btn:hover, .btn:focus {
+    background: yellowgreen;
+    text-shadow: 0 -1px black;
+}
+ 
+.btn:active {
+    background: yellowgreen;
+    text-shadow: 0 -1px black;
+    border: 2px solid green;
+}
+
+/*-------------------- FOOTER --------------------------*/
+#conteneur
+{
+    display: flex;  
+	background-color:yellowgreen;
+	justify-content: space-between;
+	position: relative;
+	bottom : 0px;
+	right: 0px;
+	left: 0px;
+}
+
+.position:nth-child(2) /* permet prendre le 2eme élément dans html grâce à nth-child(1) */
+{align-self: flex-end;}
